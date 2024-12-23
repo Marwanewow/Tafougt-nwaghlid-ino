@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorry ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #1a1a1a;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    h1 {
+      font-size: 3rem;
+      text-align: center;
+      color: #ff6b6b;
+      pointer-events: none;
+    }
+    p{
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom:200px;
+      color: #ff6b6b;
+      pointer-events: none;
+    }
+    .shape {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      transform: translate(-50%, -50%);
+    }
+    .shape img {
+      width: 50px;
+      height: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h1 onclick="catAttack()" id="title">Cat Attack ❤️</h1>
+  <p>click to activate</p>
+  <script>
+    const svgs = [
+      "https://www.svgrepo.com/download/436052/cat-2.svg",
+      "https://www.svgrepo.com/download/436053/cat-1.svg",
+      "https://www.svgrepo.com/download/436054/cat-3.svg",
+      "https://www.svgrepo.com/download/436055/cat-4.svg",
+      "https://www.svgrepo.com/download/436056/cat-5.svg"
+      ];
+
+    document.body.addEventListener("click", (event) => {
+      const shape = document.createElement("img");
+      shape.className = "shape";
+      shape.src = getRandomSVG();
+      shape.style.left = `${event.clientX}px`;
+      shape.style.top = `${event.clientY}px`;
+      document.body.appendChild(shape);
+    });
+
+    function getRandomSVG() {
+      return svgs[Math.floor(Math.random() * svgs.length)];
+    }
+  </script>
+</body>
+</html>
